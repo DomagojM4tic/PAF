@@ -1,0 +1,42 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def pravac(x1,x2,y1,y2):
+    if x1==x2:
+        print(f"jednadzba pravca je: x={x1}")
+    else:
+        k=(y2-y1)/(x2-x1)
+        l=y1-k*x1
+        print(f"Jednadžba pravca je: y={k}x + {l}")
+    x=np.linspace(-8,8,100)
+    y=k*x+l
+    while True:
+        prikaz=input("Skini pdf? (da/ne): ")
+        if prikaz=="da":
+            ime=input("Odredi ime pod kojim će se spremiti pdf grafa: ")
+            plt.plot(x, y)
+            plt.plot(0,0)
+            plt.savefig(f"{ime}.pdf",format="pdf")
+            break
+        if prikaz=="ne":
+            plt.plot(x, y)
+            plt.plot(0,0)
+            plt.show()
+            break
+        else:
+            print("Pogrešan unos, probaj ponovno!")
+    
+    
+
+while True:
+    try:
+        x1=float(input("Unesi prvu x koordinatu: "))
+        y1=float(input("Unesi prvu y koordinatu: "))
+        x2=float(input("Unesi drugu x koordinatu: "))
+        y2=float(input("Unesi drugu y koordinatu: "))
+        break
+    except ValueError:
+        print("Pogrešan unos! Pokušaj ponovno!")
+
+pravac(x1,x2,y1,y2)
+
