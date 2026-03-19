@@ -26,12 +26,12 @@ def jednoliko_gibanje(F,m,t_max,dt):
 
     #a-t graf
     plt.subplot(1,3,3)
-    a=v/t
+    akc=v/t
     plt.xlabel("t[s]")
     plt.grid()
     plt.title("a-t")
     plt.ylabel("a[m/$s^2$]")
-    plt.plot(t,a)
+    plt.plot(t,akc)
     plt.tight_layout()
 
     return plt.show() 
