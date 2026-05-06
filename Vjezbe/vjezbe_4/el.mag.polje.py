@@ -26,11 +26,11 @@ class Cestica():
         x=[0]
         y=[0]
         z=[0]
+
         Buk=np.sqrt(self.B[0]**2+self.B[1]**2+self.B[2]**2)
-    
-       
 
         T=2*np.pi*self.m/(abs(self.q)*Buk)
+
         dt=T/tocke
 
         t=0
@@ -62,7 +62,7 @@ class Cestica():
             self.v[2]=self.v[2]+1/6*dt*(k1z+2*k2z+2*k3z+k4z)
 
             t=t+dt
-
+            
             x.append(x[-1]+dx)
             y.append(y[-1]+dy)
             z.append(z[-1]+dz)
@@ -73,30 +73,46 @@ class Cestica():
     
 
 
-elektron = Cestica(9.109e-31, -1.6e-19, [0,0,10], [3,5,5], [10e2,10e2,10e2])
-x_e, y_e, z_e = elektron.RungeKuttara(n=4)
-
+elektron = Cestica(9.109e-31, -1.6e-19, [0,0,10], [3,8,5], [10e2,10e2,10e2])
+x_e, y_e, z_e = elektron.RungeKuttara(n=7)
 
 pozitron = Cestica(9.109e-31, 1.6e-19, [0,0,10], [3,5,5], [10e2,10e2,10e2])
-x_p, y_p, z_p = pozitron.RungeKuttara(n=4)
+x_p, y_p, z_p = pozitron.RungeKuttara(n=7)
+
+
+
+elektron2 = Cestica(9.109e-31, -1.6e-19, [0,0,10], [0,10,0], [10,10,10])
+x_e2, y_e2, z_e2 = elektron2.RungeKuttara(n=15)
+
+pozitron2 = Cestica(9.109e-31, 1.6e-19, [0,0,10], [0,10,0], [10,10,10])
+x_p2, y_p2, z_p2 = pozitron2.RungeKuttara(n=15)
+
+
 
 
 # --- UREDAN PLOT ---
-fig = plt.figure(figsize=(10, 8))
-ax = fig.add_subplot(111, projection='3d')
+fig = plt.figure(figsize=(14, 6))
 
-# Crtanje putanja
-ax.plot3D(x_e, y_e, z_e, color='blue', linewidth=2, label='Elektron')
-ax.plot3D(x_p, y_p, z_p, color='red', linewidth=2, label='Pozitron')
 
-# Oznake osi i naslov
-ax.set_title("Usporedba putanja: Elektron vs. Pozitron", fontsize=14, pad=15)
-ax.set_xlabel("X")
-ax.set_ylabel("Y")
-ax.set_zlabel("Z")
+ax1 = fig.add_subplot(121, projection='3d')
+ax1.plot3D(x_e, y_e, z_e, color='blue', linewidth=1.5, label='Elektron')
+ax1.plot3D(x_p, y_p, z_p, color='red', linewidth=1.5, label='Pozitron')
 
-# Dodavanje legende
-ax.legend()
+ax1.set_xlabel("X")
+ax1.set_ylabel("Y")
+ax1.set_zlabel("Z")
+ax1.legend()
 
+
+ax2 = fig.add_subplot(122, projection='3d')
+ax2.plot3D(x_e2, y_e2, z_e2, color='blue', linewidth=1.5, label='Elektron')
+ax2.plot3D(x_p2, y_p2, z_p2, color='red', linewidth=1.5, label='Pozitron')
+
+
+ax2.set_xlabel("X")
+ax2.set_ylabel("Y")
+ax2.set_zlabel("Z")
+ax2.legend()
 # Prikaz
+plt.tight_layout
 plt.show()
