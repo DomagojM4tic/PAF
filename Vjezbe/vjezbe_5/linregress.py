@@ -30,7 +30,7 @@ y2=ar.aritmeticka_sredina(Yna2)
 y=[]
 yplus=[]
 yminus=[]
-
+    
 sigma=np.sqrt(1/len(M)*((y2/x2)-a**2))
 
 for i in alfa:

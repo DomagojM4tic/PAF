@@ -16,3 +16,5 @@ def funkcija(N):
 
 for n in N:
     print(funkcija(n))
+ 
+ #kod većeg broja iteracija greške u računu se akumuliraju
