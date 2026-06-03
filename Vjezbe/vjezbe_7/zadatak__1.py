@@ -27,7 +27,7 @@ def histogram(podaci, k):
     for i in range(k):
         zagrada="]" if i==k-1 else ")"
         print(f"[{rubovi[i]:.2f}, {rubovi[i+1]:.2f}{zagrada} : {podaci_po_k[i]} --------")
-    print("....................")
+    print("")
     
     return rubovi, podaci_po_k, h
 

@@ -55,16 +55,16 @@ plt.figure()
 plt.hist(mase_ciste)
 
 plt.axvline(medijan1, color='red', linestyle='--', linewidth=2, 
-            label=f'Aritmetička sredina: {medijan1:.4f}')
+            label=f'Medijan: {medijan1:.4f}')
 
 plt.axvline(avg_mase, color='purple', linestyle=':', linewidth=2.5, 
-            label=f'Medijan: {avg_mase:.4f}')
+            label=f'Aritmeticka sredina: {avg_mase:.4f}')
 
 plt.axvline(medijan2, color='orange', linestyle='-.', linewidth=2, 
-            label=f'Aritmetička sredina bez pogresaka: {medijan2:.4f}')
+            label=f'Medijan bez pogresaka: {medijan2:.4f}')
 
 plt.axvline(avg_mase_ciste, color='yellow', linestyle='solid', linewidth=2.5, 
-            label=f'Medijan bez pogresaka: {avg_mase_ciste:.4f}')
+            label=f'Aritmeticka sredina bez pogresaka: {avg_mase_ciste:.4f}')
 
 plt.legend(loc='upper right')
 plt.show()
